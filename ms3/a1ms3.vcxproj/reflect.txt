@@ -1,0 +1,69 @@
+/*
+*****************************************************************************
+                        Assignment 1 - Milestone 3
+Full Name  : ilhyun cho
+Student ID#: 116342221
+Email      : icho8@myseneca.ca
+Section    : ZCC
+
+Authenticity Declaration:
+I declare this submission is the result of my own work and has not been
+shared with any other student or 3rd party content provider. This submitted
+piece of work is entirely of my own creation.
+*****************************************************************************
+*/
+
+1. 
+- I created three functions, ‘userInputPhone’, ‘swap’ and ‘bubbleSort’. 
+
+  1.1)	 void userInputPhone(char* num);
+ A new function was created instead of 'void inputCString (char* str, int minChar, int maxChar)' because an error different from the previous function
+should be output. Since the phone number is set to 10 digits, the same values for 'minChar' and 'maxChar' are omitted in 'userInputPhone' function.
+
+  1.2)	 void bubbleSort(struct Appointment* app, int appCount);
+ It is a function created to organize the contents that are not organized in order in the attachmentData.txt file in chronological order.
+Description of bubble sort : First and second data, second and third data, third and fourth data, ...,
+In this way, bubble sorting compares the (last-1)th data with the last data and sorts the data while exchanging the data.
+After performing the first rotation, the largest data moves back. In the second round, the data at the end are excluded from the sorting .
+And after the second turn, the second data at the end is excluded from the alignment. 
+Each sort is performed, and the data excluded from the sort is incremented by one.
+The bubble sorting feature allows you to sort scheduled patients by the nearest year, time, and date. 
+However, the problem is that these sorted data were not stored in the first element. 
+
+  1.3)	void swap(struct Appointment* a, struct Appointment* b);
+The bubble sorting function was used to sort by year, date, and time. In each case, I had to exchange two adjacent structures. 
+Since there are 5 IF statements, we created a 'swap' function to avoid code duplication. This function is a very simple function. 
+First, two structure arguments are delivered. And two arguments were exchanged using the local variable 'temp'.
+
+
+
+2.
+- Minimizing the number of scanf function calls in the inputInt, inputIntPositive, and inputIntRange functions is done to reduce the potential for input validation errors and to improve the user experience.
+scanf is a function that reads input from the standard input stream, and it can be susceptible to errors and vulnerabilities when used improperly. One of the most common problems with scanf is that it can leave input in the input buffer, 
+which can cause issues with subsequent input calls. If the user enters invalid input, such as a non-numeric character, scanf will fail to read it and leave it in the input buffer. 
+This can result in an infinite loop where the program keeps asking for input without advancing.
+By using the scanf function sparingly in these functions, input validation can be more reliable and robust. The inputInt function, for instance, uses scanf to read an integer and a character from the input stream.
+It then checks to see if the character read was a newline character. If it was not, an error message is printed, and the input buffer is cleared before trying again. This approach helps to ensure that the user enters a valid integer.
+Similarly, the inputIntPositive and inputIntRange functions use inputInt to read integer input from the user. The input is then checked to see if it is a positive integer or within a specified range.
+Again, minimizing the use of scanf in these functions helps to reduce the likelihood of input buffer errors and to create a more user-friendly experience.
+In conclusion, minimizing the use of scanf in input validation functions can help improve the reliability and security of the program while creating a better user experience.
+
+
+3.
+- The new function 'userInputPhone' was placed in the same module as 'void inputPhoneData(struct Phone* phone)' because it is related to the phone number input process. 
+It was created to handle phone number input specifically, with a fixed length of 10 digits, and does not require a range of values for 'minChar' and 'maxChar' like the previous function. 
+This ensures a more efficient and accurate input process for phone numbers.
+The 'void swap(struct enjection* a, struct enjection* b)' and 'void bubbleSort(struct enjection* app, int appCount)' functions were placed in the module that handles appointment data, 
+as they are specifically used to sort the appointment data in time order. Since the appointment data in the txt file is not sorted sequentially, 
+using the bubble sort algorithm is a logical choice to ensure that the appointments are displayed in chronological order. By placing these functions in the appointment data module, 
+it keeps the code organized and allows for easy maintenance and updates in the future.
+
+Overall, the decision to place each function in a specific module was based on its specific purpose and relationship to the other functions in the module.
+ It was important to consider the efficiency and accuracy of the input process, as well as the organization and maintainability of the code.
+
+
+
+
+
+
+
